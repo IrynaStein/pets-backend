@@ -1,0 +1,2 @@
+class AgeStage < ApplicationRecord
+end
