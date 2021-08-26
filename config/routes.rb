@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
 
   post '/login', to: 'sessions#create'
-  delete '/logout', to: "seesions#destroy"
+  delete '/logout', to: 'sessions#destroy'
 end
