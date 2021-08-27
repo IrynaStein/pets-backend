@@ -1,8 +1,8 @@
 class PetSerializer < ActiveModel::Serializer
-  attributes :id, :name, :avatar, :birthday, :healthy, :hungry, :sleepy, :bored, :alive
+  attributes :id, :name, :avatar, :birthday, :healthy, :hungry, :sleepy, :bored
 
   has_one :food
   has_one :activity
-  has_one :breed
-  has_one :user
+  has_one :breed, include: [:age_stages]
+  # has_one :user
 end
