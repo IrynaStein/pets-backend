@@ -4,8 +4,9 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 before_action :authorize
     def index
         # byebug
-        pets = Pet.all
-    render json: pets
+        user = User.find_by(:id => session[:user_id])
+        pets = user.pets
+        render json: pets
     end
 
     def create
@@ -25,8 +26,8 @@ before_action :authorize
             avatar: age_stage,
             birthday: Date.today.to_s,
             healthy: true,
-            hungry: 4,
-            sleepy: 1, 
+            hungry: 1,
+            sleepy: 4, 
             bored: 3, 
             alive: true
         )
@@ -41,7 +42,7 @@ before_action :authorize
     end
 
     def authorize 
-        return render json: {errors: ["Unathorized access, please login"]}, status: :unathourized unless session.include?(:user_id)
+        return render json: {errors: ["Unathorized access, please login"]}, status: :unauthorized unless session.include?(:user_id)
     end
 
     def render_invalid_response(invalid)

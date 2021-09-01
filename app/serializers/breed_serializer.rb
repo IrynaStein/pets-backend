@@ -3,7 +3,7 @@ class BreedSerializer < ActiveModel::Serializer
   
   def age
     self.object.age_stages.map do |s|
-      {name: s.name, image: s.image_url}
+      {id: s.id, name: s.name, image: s.image_url}
     end
   end
 end

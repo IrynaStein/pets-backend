@@ -42,7 +42,7 @@ a2 =Activity.create(name: "swimming", image: swimming, act_index: 4)
 
 a3=Activity.create(name: "hiking", image: hiking, act_index: 3)
 
-a4=Activity.create(name: "ball", image: ball, act_index: 2)
+a4=Activity.create(name: "balling", image: ball, act_index: 2)
 
 puts "Seeding breeds..."
 
@@ -70,9 +70,9 @@ p1 = Pet.create(
     avatar: "https://i.imgur.com/HEZ30TE.gif",
     birthday: DateTime.parse("09/01/2009 17:00"),
     healthy: true,
-    hungry: 4,
-    sleepy: 1,
-    bored: 3,
+    hungry: 1,
+    sleepy: 4,
+    bored: 2,
     alive: true,
     food_id: f1.id,
     activity_id: a2.id,
