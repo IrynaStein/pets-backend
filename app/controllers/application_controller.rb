@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  # include ActiveRecord::Cookies
+  include ActionController::Cookies
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
   private
