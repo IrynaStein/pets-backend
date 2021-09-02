@@ -1,7 +1,6 @@
 class PetsController < ApplicationController
-rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
-
 before_action :authorize
+
     def index
         # byebug
         user = User.find_by(:id => session[:user_id])
@@ -31,6 +30,7 @@ before_action :authorize
             bored: 3, 
             alive: true
         )
+        # pet = user.pets.my_new_pet(pet_params)
         # byebug
         render json: pet, status: :created
     end
@@ -46,18 +46,5 @@ before_action :authorize
     def pet_params
         params.permit(:breed, :name, :food, :activity)
     end
-
-    def authorize 
-        return render json: {errors: ["Unathorized access, please login"]}, status: :unauthorized unless session.include?(:user_id)
-    end
-
-    def render_invalid_response(invalid)
-        # byebug
-        render json: {errors: [invalid.record]}
-    end
-
-    # def create_pet
-
-    # end
 
 end

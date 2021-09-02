@@ -10,7 +10,7 @@ class Pet < ApplicationRecord
     # validates :food, inclusion: { in: %w(strawberry avocado charcoal icecream)}
     # validates :activity, inclusion: { in: %w(coding ball hiking swimming)}
 
-    # def create_pet(params)
+    # def my_new_pet(params)
     #     breed = Breed.find_by(name: params.breed)
     #     user = User.find_by(id: 1)
     #     food = Food.find_by(name: params.food)

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :authorize, only: [:destroy] 
-    def create
+    def login
         # byebug
         user = User.find_by(user_name: params[:user_name])
         if user&.authenticate(params[:password])
@@ -12,13 +12,10 @@ class SessionsController < ApplicationController
         end
     end
 
-    def destroy
+    def logout
         # byebug
         session.delete(:user_id)
         head :no_content
     end
-
-    def authorize
-        render json: {errors: ["Unauthorized access, please login"]}, status: :unauthorized unless session.include?(:user_id)
-    end
+    
 end
