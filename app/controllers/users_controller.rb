@@ -9,7 +9,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     def show
         # byebug
         user = User.find_by(id: session[:user_id])
-        render json: user, include: :pets
+        render json: user
     end
 
     private

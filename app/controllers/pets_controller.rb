@@ -35,6 +35,12 @@ before_action :authorize
         render json: pet, status: :created
     end
 
+    def destroy
+        # byebug
+        Pet.find_by(id: params[:id]).destroy
+        head :no_content
+    end
+
     private
 
     def pet_params
