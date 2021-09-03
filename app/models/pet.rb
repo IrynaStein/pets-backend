@@ -7,26 +7,41 @@ class Pet < ApplicationRecord
     
     validates :name, presence: true, uniqueness: true
     validates :avatar, presence: true
-    # validates :food, inclusion: { in: %w(strawberry avocado charcoal icecream)}
-    # validates :activity, inclusion: { in: %w(coding ball hiking swimming)}
-
-    # def my_new_pet(params)
-    #     breed = Breed.find_by(name: params.breed)
-    #     user = User.find_by(id: 1)
-    #     food = Food.find_by(name: params.food)
-    #     activity = Activity.find_by(name: params.activity)
-    #     age_stage = breed.age_stages.find_by(id: 1).image_url
-    #     pet = Pet.create(
-    #         name: params['name'],
-    #         breed: breed,
-    #         avatar: age_stage,
-    #         birthday: Date.today.to_s,
-    #         healthy: true,
-    #         hungry: 4,
-    #         sleepy: 1, 
-    #         bored: 3, 
-    #         alive: true,
-    #         user: user
-    #     )
+    
+    # before_create :set_pet
+    #  def set_pet
+    #     byebug
+        # food = Food.find_by(name: params['food'])
+        # activity = Activity.find_by(name: params['activity'])
+        # age_stage = breed.age_stages.find_by(id: 1).image_url
+    #     self.breed = Breed.all.find_by(name: pet_params['breed'])
+    #     self.birthday = Date.today.to_s,
+    #     self.healthy = true,
+    #     self.hungry = 4,
+    #     self.sleepy = 1, 
+    #     self.bored = 3, 
+    #     self.alive = true,
+    #     self.avatar = self.breed.age_stages.find_by(id: 1).image_url
     # end
+    
+    def self.my_new_pet(pet_params)
+        breed = Breed.find_by(name: pet_params['breed'])
+        food = Food.find_by(name: pet_params['food'])
+        activity = Activity.find_by(name: pet_params['activity'])
+        age_stage = breed.age_stages.find_by(id: 1).image_url
+        pet = Pet.create!(
+            name: pet_params['name'],
+            breed: breed,
+            avatar: age_stage,
+            birthday: Date.today.to_s,
+            healthy: true,
+            activity: activity,
+            food: food,
+            avatar: age_stage,
+            hungry: 4,
+            sleepy: 1, 
+            bored: 3, 
+            alive: true,
+        )
+    end
 end
