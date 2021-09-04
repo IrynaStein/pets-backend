@@ -10,6 +10,7 @@ before_action :authorize
     end
 
     def create
+        # byebug
         user = User.find_by(:id => session[:user_id])
         pet = user.pets.my_new_pet(pet_params)
         render json: pet, status: :created

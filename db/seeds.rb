@@ -82,7 +82,7 @@ puts "Seeding pets..."
 p1 = Pet.create(
     name: "Panzon", 
     avatar: "https://i.imgur.com/HEZ30TE.gif",
-    birthday: DateTime.parse("09/01/2009 17:00"),
+    birthday: Date.today.to_s,
     healthy: true,
     hungry: 1,
     sleepy: 4,
@@ -91,6 +91,21 @@ p1 = Pet.create(
     food_id: f1.id,
     activity_id: a2.id,
     breed_id: b1.id,
+    user_id: u1.id,
+)
+
+p2 = Pet.create(
+    name: "Timmy", 
+    avatar: "https://i.imgur.com/HEZ30TE.gif",
+    birthday: Date.today.to_s,
+    healthy: true,
+    hungry: 1,
+    sleepy: 4,
+    bored: 2,
+    alive: true,
+    food_id: f2.id,
+    activity_id: a4.id,
+    breed_id: b2.id,
     user_id: u1.id,
 )
 

@@ -26,9 +26,10 @@ class Pet < ApplicationRecord
     
     def self.my_new_pet(pet_params)
         breed = Breed.find_by(name: pet_params['breed'])
+        # byebug
         food = Food.find_by(name: pet_params['food'])
         activity = Activity.find_by(name: pet_params['activity'])
-        age_stage = breed.age_stages.find_by(id: 1).image_url
+        age_stage = breed.age_stages.first.image_url
         pet = Pet.create!(
             name: pet_params['name'],
             breed: breed,
