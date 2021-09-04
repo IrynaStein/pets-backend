@@ -47,6 +47,7 @@ a4=Activity.create(name: "balling", image: ball, act_index: 2)
 puts "Seeding breeds..."
 
 b1 = Breed.create(name: "tibbar")
+b2 = Breed.create(name: "drazzil")
 
 puts "Seeding agestages..."
 baby_t = "https://i.imgur.com/8hStjCF.gif"
@@ -61,6 +62,19 @@ as2 =AgeStage.create(name: "teen-tibbar", image_url: teen_t, breed_id: b1.id)
 as3 = AgeStage.create(name: "adult-tibbar", image_url: adult_t, breed_id: b1.id)
 
 as4 = AgeStage.create(name: "senior-tibbar", image_url: senior_t, breed_id: b1.id)
+
+baby_d="https://i.imgur.com/acaCdKO.gif"
+teen_d="https://i.imgur.com/uG7LOKS.gif"
+adult_d="https://i.imgur.com/CGxzu6J.gif"
+senior_d="https://i.imgur.com/GVWTVrc.gif"
+
+as5 = AgeStage.create(name: "baby-drazzil", image_url: baby_d, breed_id: b2.id)
+
+as6 =AgeStage.create(name: "teen-drazzil", image_url: teen_d, breed_id: b2.id)
+
+as7 = AgeStage.create(name: "adult-drazzil", image_url: adult_d, breed_id: b2.id)
+
+as8 = AgeStage.create(name: "senior-drazzil", image_url: senior_d, breed_id: b2.id)
 
 
 puts "Seeding pets..."
