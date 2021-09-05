@@ -15,6 +15,8 @@ puts "Seeding users..."
 
 u1 = User.create(user_name: "iryna", password: "admin123", password_confirmation: "admin123", email: "isophiestein@gmail.com", avatar: "https://live.staticflickr.com/65535/51282850895_1151c7c8f8_c.jpg")
 
+u2 = User.create(user_name: "alicia", password: "admin123", password_confirmation: "admin123", email: "alicia.arteta1@gmail.com", avatar: "https://live.staticflickr.com/65535/51282850895_1151c7c8f8_c.jpg")
+
 puts "Seeding food..."
 avocado = "https://live.staticflickr.com/65535/51406867835_037e5a72ab_c.jpg"
 strawberry = "https://live.staticflickr.com/65535/51405887496_a7da6b1831_c.jpg"
@@ -108,6 +110,37 @@ p2 = Pet.create(
     breed_id: b2.id,
     user_id: u1.id,
 )
+
+# puts "For cemetery ..."
+# p3 = Pet.create(
+#     name: "Peluchita", 
+#     avatar: "https://i.imgur.com/HEZ30TE.gif",
+#     birthday: Date.today.to_s,
+#     healthy: true,
+#     hungry: 1,
+#     sleepy: 4,
+#     bored: 2,
+#     alive: false,
+#     food_id: 1,
+#     activity_id: 3,
+#     breed_id: 2,
+#     user_id: 2,
+# )
+
+# p4 = Pet.create(
+#     name: "Suzy", 
+#     avatar: "https://i.imgur.com/HEZ30TE.gif",
+#     birthday: Date.today.to_s,
+#     healthy: true,
+#     hungry: 1,
+#     sleepy: 4,
+#     bored: 2,
+#     alive: false,
+#     food_id: 2,
+#     activity_id: 4,
+#     breed_id: 1,
+#     user_id: 2,
+# )
 
 puts "DONE!!!"
 

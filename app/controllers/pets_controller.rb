@@ -1,9 +1,8 @@
 class PetsController < ApplicationController
-before_action :authorize
+before_action :authorize, except: [:cemetery]
 
     def index
         # byebug
-      
         user = User.find_by(:id => session[:user_id])
         pets = user.pets
         render json: pets
@@ -20,6 +19,11 @@ before_action :authorize
         # byebug
         pet = Pet.find_by(id: params[:id]).destroy
         render json: pet, status: 200
+    end
+
+    def cemetery
+        passed_pets = Pet.where(alive: false).limit(12).orbituary()
+        render json: passed_pets
     end
 
     private

@@ -45,4 +45,13 @@ class Pet < ApplicationRecord
             alive: true,
         )
     end
+
+    def self.orbituary
+        pets = Pet.all.map{|pet| {
+            name: pet.name, 
+            breed: pet.breed.name,
+            birthday: pet.birthday,
+            food: pet.food.name,
+            activity: pet.activity.name}}
+    end
 end
