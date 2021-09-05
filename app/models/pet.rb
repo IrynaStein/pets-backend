@@ -46,7 +46,7 @@ class Pet < ApplicationRecord
         )
     end
 
-    def self.orbituary
+    def self.obituary
         pets = Pet.all.map{|pet| {
             id: pet.id,
             name: pet.name, 
