@@ -23,6 +23,14 @@ class UsersController < ApplicationController
         # head :no_content
     end
 
+    def update
+        # byebug
+        User.find_by(:id => session[:user_id]).update(user_params)
+        user = User.find_by(:id => session[:user_id])
+        # byebug
+        render json: user, status: 200
+    end
+
     private
 
     def user_params
