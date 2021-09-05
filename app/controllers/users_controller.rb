@@ -17,9 +17,10 @@ class UsersController < ApplicationController
 
     def destroy
         # byebug
-        user = User.find(params[:id]).destroy
+        user = User.find_by(id: params[:id]).destroy
         session.delete(:user_id)
-        render json: user
+        render json: user, status: 200
+        # head :no_content
     end
 
     private
