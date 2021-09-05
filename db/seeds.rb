@@ -111,36 +111,36 @@ p2 = Pet.create(
     user_id: u1.id,
 )
 
-# puts "For cemetery ..."
-# p3 = Pet.create(
-#     name: "Peluchita", 
-#     avatar: "https://i.imgur.com/HEZ30TE.gif",
-#     birthday: Date.today.to_s,
-#     healthy: true,
-#     hungry: 1,
-#     sleepy: 4,
-#     bored: 2,
-#     alive: false,
-#     food_id: 1,
-#     activity_id: 3,
-#     breed_id: 2,
-#     user_id: 2,
-# )
+puts "For cemetery ..."
+p3 = Pet.create(
+    name: "Peluchita", 
+    avatar: "https://i.imgur.com/HEZ30TE.gif",
+    birthday: Date.today.to_s,
+    healthy: true,
+    hungry: 1,
+    sleepy: 4,
+    bored: 2,
+    alive: false,
+    food_id: 1,
+    activity_id: 3,
+    breed_id: 2,
+    user_id: 2,
+)
 
-# p4 = Pet.create(
-#     name: "Suzy", 
-#     avatar: "https://i.imgur.com/HEZ30TE.gif",
-#     birthday: Date.today.to_s,
-#     healthy: true,
-#     hungry: 1,
-#     sleepy: 4,
-#     bored: 2,
-#     alive: false,
-#     food_id: 2,
-#     activity_id: 4,
-#     breed_id: 1,
-#     user_id: 2,
-# )
+p4 = Pet.create(
+    name: "Suzy", 
+    avatar: "https://i.imgur.com/HEZ30TE.gif",
+    birthday: Date.today.to_s,
+    healthy: true,
+    hungry: 1,
+    sleepy: 4,
+    bored: 2,
+    alive: false,
+    food_id: 2,
+    activity_id: 4,
+    breed_id: 1,
+    user_id: 2,
+)
 
 puts "DONE!!!"
 
