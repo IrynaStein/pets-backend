@@ -22,7 +22,7 @@ before_action :authorize, except: [:cemetery]
     end
 
     def cemetery
-        passed_pets = Pet.where(alive: false).limit(12).orbituary()
+        passed_pets = Pet.where(alive: false).limit(12).obituary()
         render json: passed_pets
     end
 
