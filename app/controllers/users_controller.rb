@@ -15,6 +15,22 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def destroy
+        # byebug
+        user = User.find_by(id: params[:id]).destroy
+        session.delete(:user_id)
+        render json: user, status: 200
+        # head :no_content
+    end
+
+    def update
+        # byebug
+        User.find_by(:id => session[:user_id]).update(user_params)
+        user = User.find_by(:id => session[:user_id])
+        # byebug
+        render json: user, status: 200
+    end
+
     private
 
     def user_params
