@@ -48,9 +48,11 @@ class Pet < ApplicationRecord
 
     def self.orbituary
         pets = Pet.all.map{|pet| {
+            id: pet.id,
             name: pet.name, 
             breed: pet.breed.name,
-            birthday: pet.birthday,
+            #second date needs to be updated to the day of death
+            dates: [pet.birthday, Date.today.to_s],
             food: pet.food.name,
             activity: pet.activity.name}}
     end
