@@ -23,7 +23,7 @@ before_action :authorize, except: [:cemetery]
     end
 
     def update 
-        byebug
+        # byebug
         pet = Pet.find_by(id: params[:id]).update(game_params)
         updatedPet = Pet.find_by(id: params[:id])
         # byebug
