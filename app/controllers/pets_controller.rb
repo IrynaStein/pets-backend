@@ -4,7 +4,7 @@ before_action :authorize, except: [:cemetery]
     def index
         # byebug
         user = User.find_by(:id => session[:user_id])
-        pets = user.pets
+        pets = user.pets.where("alive = ?", true)
         render json: pets
     end
 
@@ -21,8 +21,16 @@ before_action :authorize, except: [:cemetery]
         render json: pet, status: 200
     end
 
+    def update 
+        # byebug
+        pet = Pet.find_by(id: params[:id]).update(game_params)
+        updatedPet = Pet.find_by(id: params[:id])
+        # byebug
+        render json: updatedPet, status: 200
+    end
+
     def cemetery
-        passed_pets = Pet.where(alive: false).limit(12).obituary()
+        passed_pets = Pet.where("alive = ?", false).limit(8).obituary()
         render json: passed_pets
     end
 
@@ -30,6 +38,11 @@ before_action :authorize, except: [:cemetery]
 
     def pet_params
         params.permit(:breed, :name, :food, :activity,)
+    end
+
+    def game_params
+        params.permit(:healthy, :hungry, :sleepy, :alive, :bored)
+
     end
 
 end

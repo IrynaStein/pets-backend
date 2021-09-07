@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :pets, only: [:index, :show, :create, :destroy]
+  resources :pets, only: [:index, :show, :create, :destroy, :update]
   
   get '/cemetery', to: 'pets#cemetery'
 
