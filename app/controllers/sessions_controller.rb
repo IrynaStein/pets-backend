@@ -15,10 +15,9 @@ class SessionsController < ApplicationController
     def logout
         # byebug
         # reset_session
-        # # session.clear
+        # session.clear
         # session.destroy
         session.delete :user_id
-        # byebug
         # head :no_content
         render json: {success: "deleted"}
     end

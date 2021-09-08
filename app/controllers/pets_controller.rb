@@ -25,7 +25,6 @@ before_action :authorize, except: [:cemetery]
         # byebug
         pet = Pet.find_by(id: params[:id]).update(game_params)
         updatedPet = Pet.find_by(id: params[:id])
-        # byebug
         render json: updatedPet, status: 200
     end
 
