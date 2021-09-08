@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
     def create
-        # byebug
+        byebug
         user = User.create!(user_params)
         session[:user_id] = user.id 
         # byebug
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
     def update
         # byebug
-        User.find_by(:id => session[:user_id]).update(user_params)
+        User.find_by(:id => session[:user_id]).update!(user_params)
         user = User.find_by(:id => session[:user_id])
         # byebug
         render json: user, status: 200
