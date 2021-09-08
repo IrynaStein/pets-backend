@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :authorize, only: [:destroy] 
+  before_action :authorize, only: [:logout] 
     def login
         # byebug
         user = User.find_by(user_name: params[:user_name])
@@ -14,8 +14,12 @@ class SessionsController < ApplicationController
 
     def logout
         # byebug
-        session.delete(:user_id)
-        head :no_content
+        # reset_session
+        # session.clear
+        # session.destroy
+        session.delete :user_id
+        # head :no_content
+        render json: {success: "deleted"}
     end
     
 end

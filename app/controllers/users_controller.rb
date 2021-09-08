@@ -2,8 +2,11 @@ class UsersController < ApplicationController
 
 
     def create
-        # byebug
+        byebug
         user = User.create!(user_params)
+        # if user.avatar == ""
+        #     user.update(avatar: "https://live.staticflickr.com/65535/51434875121_54db17d433_o.png")
+        # end
         session[:user_id] = user.id 
         # byebug
         render json: user, status: :created
@@ -25,7 +28,7 @@ class UsersController < ApplicationController
 
     def update
         # byebug
-        User.find_by(:id => session[:user_id]).update(user_params)
+        User.find_by(:id => session[:user_id]).update!(user_params)
         user = User.find_by(:id => session[:user_id])
         # byebug
         render json: user, status: 200
@@ -34,9 +37,8 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:user_name, :password, :password_confirmation, :email, :avatar, :user)
+        params.permit(:user_name, :password, :password_confirmation, :email, :image)
     
     end
-
    
 end

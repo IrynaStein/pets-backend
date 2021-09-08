@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+    
     has_many :pets, dependent: :destroy
-    # has_one_attached :avatar
+    has_one_attached :image
 
     has_secure_password
 
