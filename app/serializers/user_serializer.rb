@@ -1,8 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   attributes :id, :user_name, :email, :image
-  
-
 
   def image
     return unless object.image.attached?

@@ -3,9 +3,6 @@ before_action :authorize, except: :create
     def create
         # byebug
         user = User.create!(user_params)
-        # if user.avatar == ""
-        #     user.update(avatar: "https://live.staticflickr.com/65535/51434875121_54db17d433_o.png")
-        # end
         session[:user_id] = user.id 
         # byebug
         render json: user, status: :created
