@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :pets, only: [:index, :show, :create, :destroy, :update]
-  
-  get '/cemetery', to: 'pets#cemetery'
+  # namespace :api do
+    resources :pets, only: %i[index show create destroy update]
 
-  post '/signup', to: 'users#create'
-  get '/me', to: 'users#show'
-  resources :users, only: [:update, :destroy]
+    get '/cemetery', to: 'pets#cemetery'
 
-  post '/login', to: 'sessions#login'
-  delete '/logout', to: 'sessions#logout'
+    post '/signup', to: 'users#create'
+    get '/me', to: 'users#show'
+    resources :users, only: %i[update destroy]
+
+    post '/login', to: 'sessions#login'
+    delete '/logout', to: 'sessions#logout'
+  # end
+
+  # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
