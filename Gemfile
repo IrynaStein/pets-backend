@@ -40,3 +40,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'faker'
+gem 'nokogiri', '~> 1.8', '>= 1.8.5'
