@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :authorize, except: :create
     def create
-        # byebug
+        byebug
         user = User.create!(user_params)
         session[:user_id] = user.id 
         # byebug
