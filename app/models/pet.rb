@@ -8,12 +8,12 @@ class Pet < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :avatar, presence: true
     
-    # before_create :set_pet
+    # before_validation :set_pet
     #  def set_pet
     #     byebug
-        # food = Food.find_by(name: params['food'])
-        # activity = Activity.find_by(name: params['activity'])
-        # age_stage = breed.age_stages.find_by(id: 1).image_url
+    #     food = Food.find_by(name: params['food'])
+    #     activity = Activity.find_by(name: params['activity'])
+    #     age_stage = breed.age_stages.find_by(id: 1).image_url
     #     self.breed = Breed.all.find_by(name: pet_params['breed'])
     #     self.birthday = Date.today.to_s,
     #     self.healthy = true,

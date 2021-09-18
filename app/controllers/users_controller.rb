@@ -8,6 +8,11 @@ before_action :authorize, except: :create
         render json: user, status: :created
     end
 
+    # def index 
+    #     users = User.alpha
+    #     render json: users, status: 200
+    # end
+
     def show
         # byebug
         user = User.find_by(id: session[:user_id])

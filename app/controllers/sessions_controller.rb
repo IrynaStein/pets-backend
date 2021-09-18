@@ -15,11 +15,15 @@ class SessionsController < ApplicationController
     def logout
         # byebug
         # reset_session
-        # session.clear
         # session.destroy
         session.delete :user_id
+        # session.clear
+        # byebug
         # head :no_content
+        # response.headers["Set-Cookie"] = nil
         render json: {success: "deleted"}
+        # render json: {success: "deleted"}
     end
     
 end
+
